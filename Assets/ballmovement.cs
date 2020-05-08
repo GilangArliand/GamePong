@@ -14,6 +14,7 @@ public class ballmovement : MonoBehaviour
     public Rigidbody2D sesuatu;
     public Animator animtr;
     
+    public AudioSource hitEffect;
     // Start is called before the first frame update
     void Start()
     { 
@@ -42,7 +43,11 @@ public class ballmovement : MonoBehaviour
         } if (other.collider.name=="Kiri"){
             StartCoroutine(jedabolaP2());
         }
+        if(other.collider.tag=="player"){
+            hitEffect.Play();
+        }
     }
+
 
     // perintah
     IEnumerator jedabolaP1() {
